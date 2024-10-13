@@ -3,16 +3,21 @@
 روشن و خاموش کردن LED به مدت سه ثانیه با کد آردوینو
 ## کد آزمایش:
 int LED =13;
+
 void setup() {
  
 pinMode(LED , OUTPUT);
+
 }
 
 void loop() {
 
 digitalWrite(LED , HIGH);
+
 delay (3000);
+
 digitalWrite(LED , LOW);
+
 delay (3000);
 
 }
