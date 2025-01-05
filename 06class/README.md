@@ -1,4 +1,4 @@
-## راه اندازی سون سگمنت با آردوینو
+## آزماش اول: راه اندازی سون سگمنت با آردوینو
 ## تجهیزات موردنیاز:
 برد بورد
 سون سگمنت آندمشترک
@@ -61,4 +61,93 @@ void loop()
  این تابع عدد را در صفحه نمایش چاپ می کند. به عنوان مثال، sevseg.setNumber(4) عدد “4” را در صفحه نمایش چاپ می کند. همچنین می توانید اعداد را با اعشار چاپ کنید. به عنوان مثال، برای چاپ شماره “4.999”، از sevseg.setNumber (4999, 3) استفاده کنید. پارامتر دوم (3) تعیین می کند که نقطه اعشار در کجا قرار دارد. در این حالت 3 رقم از سمت راست ترین رقم فاصله دارد. در یک صفحه نمایش تک رقمی، تنظیم پارامتر دوم روی “0” نقطه اعشار را روشن می کند، در حالی که با تنظیم آن روی “1” آن را خاموش می کند.
 * sevseg.refreshDisplay() 
  این تابع در انتهای بخش حلقه برای ادامه نمایش عدد مورد نیاز است.
+## آزمایش دوم تست بارز
+## تجهیزات موردنیاز:
+* برد بورد
+* بورد آردوینو
+* بازر
+* سیم
+  ## کد آزمایش:
+  #include "pitches.h"
+  
+int melody[] =
+
+{  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_GS3, NOTE_G3, 0, NOTE_B3, NOTE_C4};
+
+int noteDurations[] =
+
+{  4, 8, 8, 4, 4, 4, 4, 4};
+
+void setup()
+
+{
+
+  for (int thisNote = 0; thisNote < 8; thisNote++)
+  
+  {
+  
+    int noteDuration = 1000 / noteDurations[thisNote];
+    
+    tone(8, melody[thisNote], noteDuration);
+    
+    delay(noteDuration + 30);
+  
+  }
+  
+}
+
+
+void loop() {
+}
+## آزمایش سوم نمایش تغییر ولتاژ فتوسل با شدت نور در سریال مانیتور
+## تجهیزات مورد نیاز:
+* برد بورد
+* بورد آردوینو
+* photocell
+* مقاومت 220اهم
+* سیم
+  ## کد آزمایش:
+  
+int led = 13;
+
+void setup() 
+
+{
+  
+  Serial.begin(9600);
+ 
+  pinMode(led , OUTPUT);
+
+}
+
+void loop()
+
+{
+
+  int sensorValue = analogRead(A0);
+ 
+  Serial.println("sensor voltage=");
+  
+  Serial.println(sensorValue);
+  
+  delay(500);
+
+  if (sensorValue > 800)
+  
+  {
+  
+    digitalWrite(led, LOW);
+  
+  }
+ 
+  else
+ 
+  {
+  
+    digitalWrite(led, HIGH);
+  
+  }
+
+}
+ 
 
