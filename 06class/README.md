@@ -14,6 +14,7 @@ SevSeg sevseg;
  
 void setup()
 {
+
     byte numDigits = 1;
     
     byte digitPins[] = {};                                                                                                      
@@ -33,6 +34,7 @@ void loop()
    for(int i = 0; i < 10; i++)
    
    {
+   
      sevseg.setNumber(i);
    
      sevseg.refreshDisplay(); 
