@@ -8,11 +8,13 @@
 ## کد آزمایش
 ## توضیحات کد
 #include <SevSeg.h>
+
 #include "SevSeg.h"
 
 SevSeg sevseg;
  
 void setup()
+
 {
 
     byte numDigits = 1;
